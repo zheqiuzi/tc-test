@@ -1,0 +1,220 @@
+//内容容器 用于包裹页面内容
+.content_container{
+    min-width: 1090px;
+  //background: #fff;
+}
+
+
+/**无样式的弹性布局**/
+.cell{
+  display: flex;
+  /*横向排列*/
+  flex-direction: row ;
+  /*不换行*/
+  flex-wrap: nowrap;
+  /*两端对齐*/
+  justify-content:space-between;
+  /*垂直居中*/
+  align-items: center;
+}
+.cell .cell-hd{
+  flex-grow: 0;
+  flex-shrink:0;
+}
+.cell .cell-bd{
+  flex-grow: 1;
+  flex-shrink:1;
+}
+.cell .cell-ft{
+  flex-grow: 0;
+  flex-shrink:0;
+}
+
+//左对齐 用于行内原生
+.t-left{
+  text-align: left;
+}
+
+//右对齐 用于行内原生
+.t-right{
+  text-align: right;
+}
+//居中 用于行内元
+.t-center{
+  text-align: center;
+}
+//消除padding
+.nopadding{
+  padding: 0px !important;
+}
+//消除margin
+.nomargin{
+  margin: 0px !important;
+}
+
+
+.px2px(@name, @px){
+  @{name}:round(@px / 2) * 1px;
+  [data-dpr="2"] & {
+      @{name}: @px * 1px;
+  }
+  // for mx3
+  [data-dpr="2.5"] & {
+      @{name}: round(@px * 2.5 / 2) * 1px;
+  }
+  // for 小米note
+  [data-dpr="2.75"] & {
+      @{name}: round(@px * 2.75 / 2) * 1px;
+  }
+  [data-dpr="3"] & {
+      @{name}: round(@px / 2 * 3) * 1px
+  }
+  // for 三星note4
+  [data-dpr="4"] & {
+      @{name}: @px * 2px;
+  }
+}
+/*车型页面左侧滑动展示*/
+.sider-mark{
+  display: none;
+  position:absolute;
+  top:0;
+  right:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  animation:'mybrand' 0.3s ease-in-out;
+  -webkit-animation:'mybrand' 0.3s ease-in-out;
+  z-index:1000;
+}
+.sider-wrap{
+  display: none;
+  position: fixed;
+  top:0;
+  right:0;
+  width:80%;
+  height:100%;
+  background: #fff;
+  overflow-y: scroll;
+  animation:'mybrand' 0.3s ease-in-out;
+  -webkit-animation:'mybrand' 0.3s ease-in-out;
+  z-index: 10000;
+  overflow-scrolling : touch;
+  -webkit-overflow-scrolling : touch;
+}
+.side-div{
+  font-size:1rem;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  tap-highlight-color: rgba(0,0,0,0);
+  /*display: none;*/
+  position:relative;
+  width:100%;
+  height:100%;
+  background: #fff;
+}
+.side-header{
+    height:1.253333rem;
+    line-height:1.253333rem;
+    .px2px(font-size,30px);
+    overflow: hidden;
+    background: #f7f7f7;
+    border-bottom:1px solid #dcdcdc;
+    z-index: 999;
+}
+.side-header .title{
+  position: absolute;
+  top:0;
+  right: 0; 
+  display: inline-block;
+  width:100%;
+  text-align: center;
+}
+.side-header .side-back,.side-header .side-back-all{
+  position:relative;
+  left:0.2rem;
+  top:0.13333rem;
+  z-index:2;
+  display: inline-block;
+      width: 0.666667rem;
+    height: 0.666667rem;
+      background: url(../../assets/images/icon-header.png) no-repeat;
+    background-position: center 0;
+    background-size: 100% 900%;
+}
+.side-list{
+  border-bottom: 1px solid #dcdcdc;
+  .px2px(font-size,32px);
+}
+.side-list-dt{
+  position: relative;
+  z-index: 1;
+  padding:0 0.5rem;
+  background: #f0f0f0;
+  border-bottom: 1px solid #dcdcdc;
+}
+.side-list-dd{
+  padding:0.1rem 0 0.1rem 0.2rem;
+  border-top:1px solid #eaeaea;
+  background: #fff;
+}
+.side-list-dd img{
+    width:1rem;
+    height:1rem;
+    vertical-align: middle;
+    margin-right: 0.4rem;
+}
+.side-list-dd .carimg img{
+    width:1.5rem;
+    height:1rem;
+    margin-top: 0.06rem;
+}
+.seo-loading{
+    .px2px(font-size,32px);
+    text-align: center;
+    margin-top:4.0rem;
+}
+#side-carstyle .side-list-dt{
+  .px2px(font-size,28px);
+  padding:0.1rem 0.5rem;
+}
+#side-carstyle .side-list-dd{
+  padding:0.2rem;
+}
+.side-list-dd .carname{
+  .px2px(font-size,32px);
+}
+.side-list-dd .carprice{
+  .px2px(font-size,24px);
+}
+.cityList dd,.timeList dd,.businessList dd{
+  padding:0.3rem 0.5rem;
+}
+
+/****************************字母索引******************/ 
+.ziMuBody{ 
+  position:fixed;
+  right:0;
+  background:rgba(255,255,255,0.1);
+  z-index:8;
+  overflow-y:scroll;
+  height:100%;
+  top:1.253333rem;
+  background: #fff;
+  padding-top:0.1rem;  
+}
+.ziMuUl{
+  //overflow-y:scroll;
+}
+.ziMuUl li{
+  padding:0.02rem 0.3rem;
+  color:#fe8c0c;
+  text-align: center;
+  cursor: pointer;
+  .px2px(font-size,28px);
+  color: #000;
+}
+
+
+
+
+

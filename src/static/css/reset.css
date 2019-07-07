@@ -1,0 +1,45 @@
+@charset "utf-8";
+body,ul,ol,dl,dd,p,h1,h2,h3,h4,h5,h6,input,textarea,select{
+  margin: 0; padding: 0;
+}
+ul,ol{list-style: none;}
+input,select,textarea,button{outline: none;background-color:transparent; border: none;}
+textarea{resize: none;}
+img{border: none;}
+a{text-decoration: none;}
+em,i{font-style: normal;}
+
+.hide{display:none;}
+.show{display: block;}
+.fl{float: left;}
+.fr{float: right;}
+/*完整版*/
+.clearfix:after,.clearfix:before{ content: ""; display: table; }
+.clearfix:after{clear: both;}
+.clearfix{zoom:1;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
